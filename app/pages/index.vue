@@ -7,18 +7,15 @@ const projects = computed(() => (content.value?.projects ?? []).slice(0, 3))
 
 const locale = useLocale()
 
-const { data: githubEvents } = await useAsyncData('github-events', () =>
-  $fetch<any[]>('https://api.github.com/users/Dani12600000/events/public', {
-    headers: { 'User-Agent': 'daniel-dev-portfolio' }
-  }).catch(() => null)
-)
+const { data: githubRepo } = await useFetch<any>('https://api.github.com/repos/Dani12600000/daniel.dev', {
+  query: { t: Date.now() },
+  headers: { 'User-Agent': 'daniel-dev-portfolio' }
+})
 
 const dynamicMeta = computed(() => {
-  if (!githubEvents.value) return now.value?.meta
-  const push = githubEvents.value.find((e: any) => e.type === 'PushEvent')
-  if (!push) return now.value?.meta
-
-  const diff = Date.now() - new Date(push.created_at).getTime()
+  if (!githubRepo.value?.pushed_at) return now.value?.meta
+  
+  const diff = Date.now() - new Date(githubRepo.value.pushed_at).getTime()
   const mins = Math.floor(diff / 60000)
   const hours = Math.floor(mins / 60)
   const days = Math.floor(hours / 24)
