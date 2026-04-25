@@ -89,7 +89,7 @@ const openCalendly = () => $openCalendly()
           <button class="btn primary" data-cursor-hover @click="openCalendly">
             {{ content?.ui?.contact?.bookCall ?? 'book a call' }} <span>→</span>
           </button>
-          <a v-if="cv" :href="cv.href" download class="btn" data-cursor-hover>
+          <a v-if="cv" :href="$url(cv.href)" download class="btn" data-cursor-hover>
             {{ cv.label }} ↓
           </a>
         </div>

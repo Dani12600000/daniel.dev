@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
 
   app: {
+    baseURL: '/daniel.dev/', // For GitHub Pages (username.github.io/repo-name/)
     head: {
       htmlAttrs: { lang: 'en' },
       title: 'Daniel Pereira — Full-Stack Developer',
@@ -28,4 +29,16 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  nitro: {
+    preset: 'github-pages',
+    prerender: {
+      routes: [
+        '/api/github-stats',
+        '/api/site-content?locale=en',
+        '/api/site-content?locale=pt'
+      ]
+    }
+  },
 })
+

@@ -78,7 +78,7 @@ useReveal()
       <div
         class="visual"
         :style="project.img
-          ? { background: `radial-gradient(600px 300px at 50% 40%, rgba(0,255,156,0.06), transparent 70%), #0b0d10 url(${project.img}) center/260px no-repeat` }
+          ? { background: `radial-gradient(600px 300px at 50% 40%, rgba(0,255,156,0.06), transparent 70%), #0b0d10 url($url(project.img)) center/260px no-repeat` }
           : { background: '#0b0d10' }"
       >
         <div class="fig"><span class="sq">■</span> {{ uiWork.fig }}</div>

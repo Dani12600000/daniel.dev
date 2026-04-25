@@ -72,7 +72,7 @@ onMounted(() => {
           @click="switchLang(l.code)"
         >{{ l.code }}</button>
       </div>
-      <a v-if="cv" :href="cv.href" class="btn" download data-cursor-hover>
+      <a v-if="cv" :href="$url(cv.href)" class="btn" download data-cursor-hover>
         {{ cv.label }} <span>↓</span>
       </a>
       <button
@@ -107,7 +107,7 @@ onMounted(() => {
             @click="switchLang(l.code)"
           >{{ l.code }}</button>
         </div>
-        <a v-if="cv" :href="cv.href" class="btn" download>{{ cv.label }} ↓</a>
+        <a v-if="cv" :href="$url(cv.href)" class="btn" download>{{ cv.label }} ↓</a>
       </div>
     </div>
   </nav>

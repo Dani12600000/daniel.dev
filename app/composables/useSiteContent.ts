@@ -20,16 +20,9 @@ export const useSiteContent = () => {
 }
 
 const fetchFor = async (locale: string): Promise<SiteContent> => {
-  if (import.meta.server) {
-    // On the server, read the file directly from the public directory
-    const { readFileSync } = await import('node:fs')
-    const { resolve } = await import('node:path')
-    const filePath = resolve(process.cwd(), `public/content/site.${locale}.json`)
-    return JSON.parse(readFileSync(filePath, 'utf-8'))
-  }
-  // On the client, use a plain fetch to avoid Vue Router interception
-  const res = await globalThis.fetch(`/content/site.${locale}.json`)
-  return res.json()
+  // Fetching from an internal API route is the standard Nuxt way.
+  // It bypasses router warnings and is easily pre-rendered for GitHub Pages.
+  return await $fetch('/api/site-content', { query: { locale } })
 }
 
 export const useLoadSiteContent = async () => {

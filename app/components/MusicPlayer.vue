@@ -38,8 +38,8 @@ onMounted(() => {
     data-cursor-hover
     @click="toggle"
   >
-    <audio ref="audioRef" :src="music.url" loop preload="none"></audio>
-    <span class="cover" :style="{ backgroundImage: `url('${music.cover}')` }" />
+    <audio ref="audioRef" :src="$url(music.url)" loop preload="none"></audio>
+    <span class="cover" :style="{ backgroundImage: `url($url(music.cover))` }" />
     <span class="bars"><span /><span /><span /></span>
     <span>{{ music.label }}</span>
   </button>
@@ -49,7 +49,7 @@ onMounted(() => {
     class="music-player paused"
     data-cursor-hover
   >
-    <span class="cover" :style="{ backgroundImage: `url('${music.cover}')` }" />
+    <span class="cover" :style="{ backgroundImage: `url($url(music.cover))` }" />
     <span class="bars"><span /><span /><span /></span>
     <span>{{ music.label }}</span>
   </button>

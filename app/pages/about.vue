@@ -79,7 +79,7 @@ useReveal()
             <div
               v-if="t.img"
               class="thumb"
-              :style="{ backgroundImage: `url(${t.img})` }"
+              :style="{ backgroundImage: `url($url(t.img))` }"
             />
             <div class="body">
               <div class="head-row">
