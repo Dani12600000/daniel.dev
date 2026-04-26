@@ -20,9 +20,10 @@ export const useSiteContent = () => {
 }
 
 const fetchFor = async (locale: string): Promise<SiteContent> => {
-  // Fetching from an internal API route is the standard Nuxt way.
-  // It bypasses router warnings and is easily pre-rendered for GitHub Pages.
-  return await $fetch('/api/site-content', { query: { locale } })
+  // Fetching the static JSON directly from the public folder.
+  // This is highly robust for GitHub Pages, avoiding API query-param routing issues.
+  const baseURL = useRuntimeConfig().app.baseURL || '/'
+  return await $fetch(`${baseURL}content/site.${locale}.json`)
 }
 
 export const useLoadSiteContent = async () => {
