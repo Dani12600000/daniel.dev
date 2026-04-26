@@ -1,0 +1,669 @@
+{
+  "site": {
+    "name": "daniel.dev",
+    "brand": "D",
+    "title": "Daniel Pereira — Full-Stack Developer",
+    "description": "I build seamless, fast web experiences with Vue, Nuxt & Node. Terminal-inspired portfolio.",
+    "tagline": "Portfolio 2026",
+    "lastUpdated": "2026-04-24",
+    "locale": "en",
+    "author": "Daniel Pereira",
+    "location": "Abrantes, PT",
+    "timezone": "UTC+00",
+    "status": "open to work",
+    "availability": "Q3 2026",
+    "stats": {
+      "loc": "42,384",
+      "commits": "1,203"
+    },
+    "cv": {
+      "label": "CV.pdf",
+      "href": "/cv.pdf"
+    }
+  },
+  "navigation": [
+    {
+      "key": "home",
+      "num": "00",
+      "label": "index",
+      "path": "/"
+    },
+    {
+      "key": "work",
+      "num": "01",
+      "label": "work",
+      "path": "/work"
+    },
+    {
+      "key": "skills",
+      "num": "02",
+      "label": "stack",
+      "path": "/skills"
+    },
+    {
+      "key": "about",
+      "num": "03",
+      "label": "about",
+      "path": "/about"
+    },
+    {
+      "key": "contact",
+      "num": "04",
+      "label": "contact",
+      "path": "/contact"
+    }
+  ],
+  "languages": [
+    {
+      "code": "EN",
+      "active": true
+    },
+    {
+      "code": "PT",
+      "active": false
+    }
+  ],
+  "hero": {
+    "eyebrow": "HELLO_WORLD — PORTFOLIO 2026",
+    "firstName": "Daniel",
+    "lastName": "Pereira",
+    "titleLine1": "full-stack",
+    "titleLine2": "developer",
+    "paragraph": "I build <strong>seamless, fast</strong> web experiences with Vue, Nuxt & Node. Currently at <u>SkillTech</u>, shipping tools for the city of Abrantes.",
+    "mobileParagraph": "I build <strong>seamless</strong> web experiences with Vue, Nuxt & Node. At SkillTech, shipping for Abrantes.",
+    "typedLine": "const developer = { versatile: true, curious: ∞ }",
+    "primaryCta": {
+      "label": "./view_work",
+      "href": "/work"
+    },
+    "secondaryCta": {
+      "label": "book a call",
+      "href": "/contact",
+      "kbd": "⌘K"
+    }
+  },
+  "nowCard": {
+    "label": "now playing",
+    "title": "Building a amazing portfolio page",
+    "meta": "last pushed · 4h ago",
+    "system": [
+      {
+        "k": "location",
+        "v": "Abrantes, PT"
+      },
+      {
+        "k": "timezone",
+        "v": "UTC+00"
+      },
+      {
+        "k": "stack",
+        "v": "vue · nuxt · ts",
+        "color": "cyan"
+      },
+      {
+        "k": "status",
+        "v": "open to work",
+        "color": "neon"
+      }
+    ],
+    "systemLabel": "system"
+  },
+  "terminalCard": {
+    "file": "~/about.sh",
+    "shell": "zsh",
+    "lines": [
+      {
+        "prompt": true,
+        "text": "whoami"
+      },
+      {
+        "prompt": false,
+        "text": "Daniel — 21, PT"
+      },
+      {
+        "prompt": true,
+        "text": "cat interests.txt"
+      },
+      {
+        "prompt": false,
+        "text": "[chess, music, cleancode]"
+      },
+      {
+        "prompt": true,
+        "text": "echo $MOOD"
+      },
+      {
+        "prompt": false,
+        "text": "focused",
+        "cursor": true,
+        "color": "cyan"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "k": "projects",
+      "v": "4+"
+    },
+    {
+      "k": "yrs code",
+      "v": "10"
+    },
+    {
+      "k": "stack",
+      "v": "19"
+    }
+  ],
+  "projects": [
+    {
+      "id": "movemaster",
+      "n": "01",
+      "title": "Movemaster",
+      "subtitle": "Chess assistant — move suggestion overlay",
+      "tagline": "Real-time chess analysis, inline.",
+      "year": "2024",
+      "role": "Design + Engineering",
+      "timeline": "3 months",
+      "stack": [
+        "TypeScript",
+        "Stockfish.js",
+        "Chrome ext"
+      ],
+      "tag": "hobby",
+      "img": "/assets/movemaster-logo.png",
+      "desc": "A browser extension that analyzes live chess positions and overlays suggested moves directly on chess.com.",
+      "links": {
+        "github": "github.com/Dani12600000/movemaster",
+        "live": null
+      },
+      "caseStudy": {
+        "sections": [
+          {
+            "num": "01",
+            "title": "Problem",
+            "body": "Learning chess openings means cross-referencing an engine constantly. Context-switching to a second tab kills the flow. I wanted the engine's suggestion to sit inline, non-intrusively, while I play."
+          },
+          {
+            "num": "02",
+            "title": "Approach",
+            "body": "A Chrome extension hooks into the board DOM, hashes the position into FEN, and pipes it to a local Stockfish worker. The suggested move renders as a translucent arrow overlay — always present, never blocking input.",
+            "code": {
+              "lang": "ts",
+              "filename": "content-script.ts",
+              "tokens": [
+                {
+                  "t": "// content-script.ts",
+                  "c": "comment"
+                },
+                {
+                  "t": "\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "const",
+                  "c": "keyword"
+                },
+                {
+                  "t": " fen = ",
+                  "c": "plain"
+                },
+                {
+                  "t": "parseBoard",
+                  "c": "fn"
+                },
+                {
+                  "t": "(document);\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "const",
+                  "c": "keyword"
+                },
+                {
+                  "t": " best = ",
+                  "c": "plain"
+                },
+                {
+                  "t": "await",
+                  "c": "keyword"
+                },
+                {
+                  "t": " stockfish.",
+                  "c": "plain"
+                },
+                {
+                  "t": "analyse",
+                  "c": "fn"
+                },
+                {
+                  "t": "(fen, ",
+                  "c": "plain"
+                },
+                {
+                  "t": "depth",
+                  "c": "arg"
+                },
+                {
+                  "t": ": ",
+                  "c": "plain"
+                },
+                {
+                  "t": "18",
+                  "c": "num"
+                },
+                {
+                  "t": ");\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "overlay",
+                  "c": "fn"
+                },
+                {
+                  "t": ".",
+                  "c": "plain"
+                },
+                {
+                  "t": "drawArrow",
+                  "c": "fn"
+                },
+                {
+                  "t": "(best.from, best.to);",
+                  "c": "plain"
+                }
+              ]
+            }
+          },
+          {
+            "num": "03",
+            "title": "Build",
+            "bullets": [
+              "Stockfish compiled to WASM — ships in the extension bundle.",
+              "MutationObserver tracks board state without polling.",
+              "SVG arrow overlay, inset to match chess.com's square size."
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Outcome",
+            "body": "Works end-to-end. Latency under 200ms for depth-18 analysis on a mid-range laptop. Built purely as a learning exercise — obviously, I don't use it in ranked games."
+          }
+        ]
+      }
+    },
+    {
+      "id": "terminator",
+      "n": "02",
+      "title": "Terminator",
+      "subtitle": "Termo (Portuguese Wordle) solver",
+      "tagline": "Entropy-driven Portuguese word solver.",
+      "year": "2023",
+      "role": "Full stack",
+      "timeline": "1 month",
+      "stack": [
+        "JavaScript",
+        "Dictionary search",
+        "DOM"
+      ],
+      "tag": "tool",
+      "img": "/assets/logo.png",
+      "desc": "A wordle-solver tuned to the Portuguese language corpus, with entropy-based guess scoring.",
+      "links": {
+        "github": "github.com/Dani12600000/terminator",
+        "live": null
+      }
+    },
+    {
+      "id": "pap",
+      "n": "03",
+      "title": "Industries Manager",
+      "subtitle": "PAP — diploma full stack project",
+      "tagline": "CRUD platform for industry records.",
+      "year": "2023",
+      "role": "Sole developer",
+      "timeline": "6 months",
+      "stack": [
+        "PHP",
+        "PostgreSQL",
+        "Bootstrap"
+      ],
+      "tag": "academic",
+      "img": null,
+      "desc": "A CRUD platform for managing industry records, plants and workers — submitted for the PAP qualification.",
+      "links": {
+        "github": null,
+        "live": null
+      }
+    },
+    {
+      "id": "weebly",
+      "n": "04",
+      "title": "First Website",
+      "subtitle": "5th grade — still online",
+      "tagline": "The one that started it all.",
+      "year": "2015",
+      "role": "Curious kid",
+      "timeline": "a weekend",
+      "stack": [
+        "Weebly",
+        "Drag-drop"
+      ],
+      "tag": "history",
+      "img": null,
+      "desc": "My very first shipped site. Worth a trip down memory lane — plus a few other early experiments live there.",
+      "links": {
+        "github": null,
+        "live": null
+      }
+    }
+  ],
+  "skills": {
+    "legend": "● core   ○ used occasionally",
+    "groups": [
+      {
+        "group": "frontend",
+        "items": [
+          {
+            "n": "Vue.js",
+            "yrs": 3,
+            "last": "today",
+            "core": true
+          },
+          {
+            "n": "Nuxt",
+            "yrs": 2,
+            "last": "today",
+            "core": true
+          },
+          {
+            "n": "TypeScript",
+            "yrs": 2,
+            "last": "today",
+            "core": true
+          },
+          {
+            "n": "JavaScript",
+            "yrs": 6,
+            "last": "today",
+            "core": true
+          },
+          {
+            "n": "HTML5",
+            "yrs": 8,
+            "last": "today",
+            "core": true
+          },
+          {
+            "n": "CSS3",
+            "yrs": 8,
+            "last": "today",
+            "core": true
+          },
+          {
+            "n": "Vuetify",
+            "yrs": 2,
+            "last": "this week",
+            "core": false
+          },
+          {
+            "n": "GSAP",
+            "yrs": 1,
+            "last": "this week",
+            "core": false
+          }
+        ]
+      },
+      {
+        "group": "backend",
+        "items": [
+          {
+            "n": "PHP",
+            "yrs": 4,
+            "last": "this month",
+            "core": true
+          },
+          {
+            "n": "Node.js",
+            "yrs": 2,
+            "last": "this week",
+            "core": false
+          },
+          {
+            "n": "Python",
+            "yrs": 3,
+            "last": "this month",
+            "core": false
+          },
+          {
+            "n": "Java",
+            "yrs": 2,
+            "last": "2024",
+            "core": false
+          },
+          {
+            "n": "C",
+            "yrs": 1,
+            "last": "2023",
+            "core": false
+          },
+          {
+            "n": "Pascal",
+            "yrs": 1,
+            "last": "2022",
+            "core": false
+          },
+          {
+            "n": "Visual Basic",
+            "yrs": 1,
+            "last": "2022",
+            "core": false
+          }
+        ]
+      },
+      {
+        "group": "data",
+        "items": [
+          {
+            "n": "PostgreSQL",
+            "yrs": 3,
+            "last": "today",
+            "core": true
+          },
+          {
+            "n": "SQL",
+            "yrs": 4,
+            "last": "today",
+            "core": true
+          },
+          {
+            "n": "MongoDB",
+            "yrs": 1,
+            "last": "this year",
+            "core": false
+          }
+        ]
+      },
+      {
+        "group": "tools",
+        "items": [
+          {
+            "n": "Git",
+            "yrs": 5,
+            "last": "today",
+            "core": true
+          }
+        ]
+      }
+    ]
+  },
+  "about": {
+    "intro": "two decades,",
+    "introAccent": "one thread.",
+    "paragraph": "A short path from Lisbon to Abrantes, with a stubborn curiosity about <em>how things are built</em> picked up along the way. This is the annotated version.",
+    "bio": {
+      "name": "Daniel Pereira",
+      "born": "2004-07-03",
+      "based": "Abrantes, PT",
+      "role": "Full Stack",
+      "langs": [
+        "pt",
+        "en"
+      ]
+    },
+    "timeline": [
+      {
+        "year": "2004",
+        "title": "The Beginning",
+        "desc": "Born in Lisbon.",
+        "loc": "Lisbon, PT",
+        "tag": "origin",
+        "img": null
+      },
+      {
+        "year": "2010 – 2015",
+        "title": "Escola de Caselas",
+        "desc": "Primary Education (1st – 4th Grade).",
+        "loc": "Lisbon, PT",
+        "tag": "school",
+        "img": "/assets/escola_caselas.webp"
+      },
+      {
+        "year": "2015 – 2019",
+        "title": "Escola Paula Vicente",
+        "desc": "Middle School (5th – 8th).",
+        "loc": "Restelo, Lisbon",
+        "tag": "school",
+        "img": "/assets/escola_paula_vicente.webp"
+      },
+      {
+        "year": "2019 – 2020",
+        "title": "Escola do Restelo",
+        "desc": "9th Grade.",
+        "loc": "Restelo, Lisbon",
+        "tag": "school",
+        "img": "/assets/escola_restelo.webp"
+      },
+      {
+        "year": "2020 – 2023",
+        "title": "Dr. Solano de Abreu",
+        "desc": "High School — IT Technician. Completed PAP + 2 internships at Câmara Municipal de Abrantes.",
+        "loc": "Abrantes",
+        "tag": "high school",
+        "img": "/assets/escola_dr_solano_abreu.webp"
+      },
+      {
+        "year": "2023 – 2025",
+        "title": "ESTA — CTeSP",
+        "desc": "Higher Ed. Planned Germany internship, landed back at CM Abrantes for a 3rd successful run.",
+        "loc": "Abrantes",
+        "tag": "higher ed",
+        "img": "/assets/ESTA_Abrantes.jpg"
+      },
+      {
+        "year": "2025 — now",
+        "title": "SkillTech",
+        "desc": "Full Stack Developer. Services for Câmara Municipal de Abrantes.",
+        "loc": "Abrantes",
+        "tag": "work",
+        "img": null
+      }
+    ]
+  },
+  "contact": {
+    "heading1": "let's",
+    "heading2": "build",
+    "heading3": "something.",
+    "paragraph": "Open to full-stack roles, contract work, and interesting collaborations. Fast at replying. PT / EN / a little DE.",
+    "channels": [
+      {
+        "k": "email",
+        "v": "dp709020@gmail.com",
+        "href": "mailto:dp709020@gmail.com",
+        "copyable": true
+      },
+      {
+        "k": "phone",
+        "v": "+351 939 053 007",
+        "href": "tel:+351939053007",
+        "copyable": true
+      },
+      {
+        "k": "github",
+        "v": "Dani12600000",
+        "href": "https://github.com/Dani12600000",
+        "copyable": false
+      },
+      {
+        "k": "linkedin",
+        "v": "in/daniel-pereira",
+        "href": "https://www.linkedin.com/in/daniel-pereira",
+        "copyable": false
+      }
+    ],
+    "terminalTitle": "$ compose --to daniel",
+    "formHint": "markdown supported · esc to clear"
+  },
+  "music": {
+    "label": "lo-fi radio",
+    "cover": "/assets/music_cover.jpeg",
+    "url": "/music/The Efficient Architect.mp3"
+  },
+  "footer": {
+    "email": "dp709020@gmail.com",
+    "colophon": "© 2026 — built with care in Abrantes, PT"
+  },
+  "ui": {
+    "labels": {
+      "selectedWork": "Selected Work",
+      "stackToolbox": "Stack / Toolbox",
+      "aboutJourney": "About / Journey",
+      "contactSayHi": "Contact / say hi"
+    },
+    "statusLabels": {
+      "available": "Available",
+      "projects": "projects",
+      "loc": "LOC",
+      "commits": "commits"
+    },
+    "skills": {
+      "heading1": "what I",
+      "heading2": "reach for",
+      "lastUpdated": "last updated",
+      "toolsTracked": "tools tracked",
+      "groups": "groups",
+      "core": "core",
+      "used": "used",
+      "experience": "experience",
+      "years": "years",
+      "lastUsed": "last used",
+      "items": "items",
+      "yr": "yr",
+      "yrs": "yrs"
+    },
+    "contact": {
+      "bookCall": "book a call",
+      "from": "from",
+      "fromPlaceholder": "you@domain.com",
+      "subject": "subject",
+      "subjectPlaceholder": "What's this about?",
+      "message": "message",
+      "messagePlaceholder": "Hey Daniel,\n\n// your message here",
+      "send": "send",
+      "sent": "sent ✓"
+    },
+    "work": {
+      "label": "Work",
+      "projectsCount": "{n} projects",
+      "heading1": "things I've",
+      "heading2": "shipped",
+      "paragraph": "A running log. Hobbyist tools, school projects, and things that solve small annoyances. Hover to preview — click for a write-up.",
+      "caseStudy": "CASE STUDY",
+      "role": "role",
+      "timeline": "timeline",
+      "stack": "stack",
+      "link": "link",
+      "fig": "fig.01 / product mark",
+      "contents": "contents"
+    }
+  }
+}
