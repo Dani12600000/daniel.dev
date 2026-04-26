@@ -6,6 +6,7 @@ export default defineNuxtConfig({
 
   app: {
     baseURL: '/daniel.dev/', // For GitHub Pages (username.github.io/repo-name/)
+    buildAssetsDir: 'nuxt', // Prevents GitHub Pages from ignoring the directory (no leading underscore)
     head: {
       htmlAttrs: { lang: 'en' },
       title: 'Daniel Pereira — Full-Stack Developer',
