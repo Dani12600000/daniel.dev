@@ -3,6 +3,7 @@ const content = useSiteContent()
 const projects = computed(() => content.value?.projects ?? [])
 const uiWork = computed(() => content.value?.ui?.work ?? ({} as any))
 
+const { $url } = useNuxtApp()
 useHead({ title: `${uiWork.value.label ?? 'Work'} — Daniel Pereira` })
 
 const hoverIndex = ref<number | null>(null)
@@ -10,7 +11,7 @@ const previewStyle = computed(() => {
   if (hoverIndex.value === null) return {}
   const p = projects.value[hoverIndex.value]
   if (!p?.img) return {}
-  return { background: `#0b0d10 url($url(p.img)) center/contain no-repeat` }
+  return { background: `#0b0d10 url(${$url(p.img)}) center/contain no-repeat` }
 })
 const previewVisible = computed(() =>
   hoverIndex.value !== null && !!projects.value[hoverIndex.value]?.img

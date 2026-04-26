@@ -289,7 +289,7 @@ const { $openCalendly } = useNuxtApp()
           <div
             class="thumb"
             :style="p.img
-              ? { background: `#0b0d10 url($url(p.img)) center/contain no-repeat` }
+              ? { background: `#0b0d10 url(${$url(p.img)}) center/contain no-repeat` }
               : { background: 'repeating-linear-gradient(135deg, #12141a 0 8px, #0e1014 8px 16px)' }"
           >
             <span class="idx">0{{ i + 1 }}</span>
