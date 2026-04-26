@@ -9,17 +9,26 @@ export const useLocale = () => {
 
 export const initLocale = async () => {
   const locale = useLocale()
+  const content = useSiteContent()
+  
   if (import.meta.server) return
+  
   const prev = locale.value
   const saved = window.localStorage.getItem(STORAGE_KEY) as Locale | null
+  
   if (saved && SUPPORTED_LOCALES.includes(saved)) {
     locale.value = saved
   } else {
     const nav = (window.navigator.language || 'en').toLowerCase()
     if (nav.startsWith('pt')) locale.value = 'pt'
   }
+  
   document.documentElement.lang = locale.value
-  if (locale.value !== prev) await reloadSiteContent()
+  
+  // Force reload if locale changed OR if content is missing
+  if (locale.value !== prev || !content.value) {
+    await reloadSiteContent()
+  }
 }
 
 export const setLocale = async (next: Locale) => {

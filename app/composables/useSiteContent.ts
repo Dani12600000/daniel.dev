@@ -30,13 +30,33 @@ export const useLoadSiteContent = async () => {
   const content = useSiteContent()
   const locale = useLocale()
 
-  // SSR / first load
   if (!content.value) {
-    const { data } = await useAsyncData<SiteContent>(
-      `site-content-${locale.value}`,
-      () => fetchFor(locale.value),
-    )
-    if (data.value) content.value = data.value
+    try {
+      const { data, error } = await useAsyncData<SiteContent>(
+        `site-content-${locale.value}`,
+        () => fetchFor(locale.value),
+        {
+          server: true,
+          lazy: false
+        }
+      )
+      
+      if (data.value) {
+        content.value = data.value
+      } else if (error.value || !data.value) {
+        // If useAsyncData failed or returned null (common in some dev environments for static files)
+        // we try a direct fetch on the client.
+        if (import.meta.client) {
+          console.warn('Initial content load via useAsyncData failed, retrying with direct fetch...')
+          content.value = await fetchFor(locale.value)
+        }
+      }
+    } catch (err) {
+      console.error('useLoadSiteContent error:', err)
+      if (import.meta.client) {
+        content.value = await fetchFor(locale.value)
+      }
+    }
   }
 
   return content.value
