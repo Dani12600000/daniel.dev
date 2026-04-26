@@ -2,6 +2,7 @@ import { onMounted, onBeforeUnmount } from 'vue'
 
 export const useReveal = (selector = '.reveal', options: IntersectionObserverInit = { rootMargin: '-8% 0px', threshold: 0.05 }) => {
   let observer: IntersectionObserver | null = null
+  let mutationObserver: MutationObserver | null = null
 
   const init = () => {
     if (typeof window === 'undefined') return
@@ -19,7 +20,20 @@ export const useReveal = (selector = '.reveal', options: IntersectionObserverIni
       })
     }, options)
 
-    document.querySelectorAll<HTMLElement>(selector).forEach(el => observer!.observe(el))
+    const observeNodes = () => {
+      document.querySelectorAll<HTMLElement>(selector).forEach(el => {
+        if (!el.classList.contains('is-visible')) {
+          observer!.observe(el)
+        }
+      })
+    }
+
+    observeNodes()
+
+    mutationObserver = new MutationObserver(() => {
+      observeNodes()
+    })
+    mutationObserver.observe(document.body, { childList: true, subtree: true })
   }
 
   onMounted(() => {
@@ -29,5 +43,7 @@ export const useReveal = (selector = '.reveal', options: IntersectionObserverIni
   onBeforeUnmount(() => {
     observer?.disconnect()
     observer = null
+    mutationObserver?.disconnect()
+    mutationObserver = null
   })
 }
