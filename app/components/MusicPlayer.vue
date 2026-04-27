@@ -30,24 +30,15 @@ onMounted(() => {
 
 <template>
   <button
-    v-if="music.url"
     type="button"
     class="music-player"
-    :class="{ paused: !playing, spinning: playing }"
-    :aria-label="playing ? 'Pause music' : 'Play music'"
+    :class="{ paused: !playing, spinning: playing, disabled: !music.url }"
+    :aria-label="!music.url ? 'Music' : (playing ? 'Pause music' : 'Play music')"
+    :disabled="!music.url"
     data-cursor-hover
     @click="toggle"
   >
-    <audio ref="audioRef" :src="$url(music.url)" loop preload="none"></audio>
-    <span class="bars"><span></span><span></span><span></span></span>
-    <span class="label">{{ music.label }}</span>
-  </button>
-  <button
-    v-else
-    type="button"
-    class="music-player paused"
-    data-cursor-hover
-  >
+    <audio v-if="music.url" ref="audioRef" :src="$url(music.url)" loop preload="none"></audio>
     <span class="bars"><span></span><span></span><span></span></span>
     <span class="label">{{ music.label }}</span>
   </button>
