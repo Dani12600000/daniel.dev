@@ -87,7 +87,16 @@ onMounted(() => {
       </button>
     </div>
 
+  </nav>
+
+  <Teleport to="body">
     <div class="mobile-drawer" :class="{ open: drawerOpen }" @click.self="closeDrawer">
+      <button
+        type="button"
+        class="drawer-close"
+        aria-label="Close navigation"
+        @click="closeDrawer"
+      >×</button>
       <NuxtLink
         v-for="l in content?.navigation ?? []"
         :key="l.key"
@@ -110,5 +119,5 @@ onMounted(() => {
         <a v-if="cv" :href="$url(cv.href)" class="btn" download>{{ cv.label }} ↓</a>
       </div>
     </div>
-  </nav>
+  </Teleport>
 </template>

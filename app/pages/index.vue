@@ -209,7 +209,7 @@ const { $openCalendly } = useNuxtApp()
             {{ hero.firstName }}<br>
             {{ hero.lastName }}<span class="dot">.</span><br>
             <span class="muted">{{ hero.titleLine1 }}</span><br>
-            <span class="muted">{{ hero.titleLine2 }}</span><span class="blink" style="color: var(--neon)">_</span>
+            <span class="muted title-with-cursor">{{ hero.titleLine2 }}</span>
           </h1>
 
           <p class="lede reveal" v-html="hero.paragraph" />
