@@ -14,8 +14,10 @@ const path = computed(() => {
 <template>
   <div class="grain">
     <CustomCursor />
-    <TopBar :path="path" />
-    <MainNav />
+    <div class="site-header">
+      <TopBar :path="path" />
+      <MainNav />
+    </div>
     <slot />
     <MusicPlayer />
   </div>
