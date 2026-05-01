@@ -328,7 +328,7 @@
         "Bootstrap"
       ],
       "tag": "academic",
-      "img": null,
+      "img": "/assets/LogoIndustries-Manager.png",
       "desc": "A CRUD platform for managing industry records, plants and workers — submitted for the PAP qualification.",
       "links": {
         "github": null,

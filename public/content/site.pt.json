@@ -328,7 +328,7 @@
         "Bootstrap"
       ],
       "tag": "académico",
-      "img": null,
+      "img": "/assets/LogoIndustries-Manager.png",
       "desc": "Uma plataforma CRUD para gerir registos de indústrias, instalações e trabalhadores — submetida como PAP.",
       "links": {
         "github": null,
