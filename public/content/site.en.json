@@ -73,7 +73,7 @@
     "mobileParagraph": "I build <strong>seamless</strong> web experiences with Vue, Nuxt & Node. At SkillTech, shipping for Abrantes.",
     "typedLine": "const developer = { versatile: true, curious: ∞ }",
     "primaryCta": {
-      "label": "./view_work",
+      "label": "./work",
       "href": "/work"
     },
     "secondaryCta": {
