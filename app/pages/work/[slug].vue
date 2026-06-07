@@ -71,6 +71,10 @@ useReveal()
           <span>{{ uiWork.link }}</span>
           <a :href="`https://${project.links.github}`" target="_blank" rel="noopener" class="v neon" data-cursor-hover>github ↗</a>
         </div>
+        <div v-if="project.links?.live" class="row">
+          <span>{{ uiWork.liveLink }}</span>
+          <a :href="project.links.live" target="_blank" rel="noopener" class="v neon" data-cursor-hover>live ↗</a>
+        </div>
       </div>
     </section>
 

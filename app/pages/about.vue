@@ -56,7 +56,7 @@ useReveal()
     <section class="timeline-wrap">
       <aside class="timeline-years">
         <div class="stick">
-          <div class="comment" style="margin-bottom: 12px">chronos</div>
+          <div class="comment" style="margin-bottom: 12px">{{ content?.ui?.labels?.chronos ?? 'chronos' }}</div>
           <div
             v-for="(t, i) in timeline"
             :key="i"

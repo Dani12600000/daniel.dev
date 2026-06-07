@@ -8,8 +8,8 @@ const projects = computed(() => (content.value?.projects ?? []).slice(0, 3))
 const locale = useLocale()
 
 const { data: githubRepo } = await useFetch<any>('https://api.github.com/repos/Dani12600000/daniel.dev', {
-  query: { t: Date.now() },
-  headers: { 'User-Agent': 'daniel-dev-portfolio' }
+  headers: { 'User-Agent': 'daniel-dev-portfolio' },
+  server: false
 })
 
 const dynamicMeta = computed(() => {
@@ -245,7 +245,9 @@ const { $openCalendly } = useNuxtApp()
             <div class="card-title">
               <span class="arrow">▸</span> {{ now.title }}
             </div>
-            <div class="card-sub">{{ dynamicMeta }}</div>
+            <div class="card-sub">
+              <ClientOnly>{{ dynamicMeta }}<template #fallback>{{ now.meta }}</template></ClientOnly>
+            </div>
 
             <div class="divider" style="margin:16px 0" />
 

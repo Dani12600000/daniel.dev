@@ -20,10 +20,8 @@ export const useSiteContent = () => {
 }
 
 const fetchFor = async (locale: string): Promise<SiteContent> => {
-  // Fetching the static JSON directly from the public folder.
-  // This is highly robust for GitHub Pages, avoiding API query-param routing issues.
   const baseURL = useRuntimeConfig().app.baseURL || '/'
-  return await $fetch(`${baseURL}content/site.${locale}.json`)
+  return await $fetch<SiteContent>(`${baseURL}api/site-content`, { query: { locale } })
 }
 
 export const useLoadSiteContent = async () => {

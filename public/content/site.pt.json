@@ -5,7 +5,7 @@
     "title": "Daniel Pereira — Full-Stack Developer",
     "description": "Construo experiências web rápidas e fluidas com Vue, Nuxt e Node. Portfólio inspirado no terminal.",
     "tagline": "Portefólio 2026",
-    "lastUpdated": "2026-04-24",
+    "lastUpdated": "2026-06-07",
     "locale": "pt",
     "author": "Daniel Pereira",
     "location": "Abrantes, PT",
@@ -69,8 +69,8 @@
     "lastName": "Pereira",
     "titleLine1": "full-stack",
     "titleLine2": "developer",
-    "paragraph": "Construo experiências web <strong>rápidas e fluidas</strong> com Vue, Nuxt e Node. Atualmente na <u>SkillTech</u>, a desenvolver ferramentas para a cidade de Abrantes.",
-    "mobileParagraph": "Construo experiências web <strong>fluidas</strong> com Vue, Nuxt e Node. Na SkillTech, a desenvolver para Abrantes.",
+    "paragraph": "Construo experiências web <strong>rápidas e fluidas</strong> com Vue, Nuxt e Node. Atualmente na <u>DSI da Câmara Municipal de Abrantes</u>, a desenvolver ferramentas para a cidade.",
+    "mobileParagraph": "Construo experiências web <strong>fluidas</strong> com Vue, Nuxt e Node. Na CMA, a desenvolver para Abrantes.",
     "typedLine": "const developer = { versatile: true, curious: ∞ }",
     "primaryCta": {
       "label": "./trabalho",
@@ -84,7 +84,7 @@
   },
   "nowCard": {
     "label": "a tocar agora",
-    "title": "A construir a página de portfólio fantastica",
+    "title": "A construir a página de portfólio fantástica",
     "meta": "último push · há 4h",
     "system": [
       {
@@ -143,7 +143,7 @@
   "stats": [
     {
       "k": "projetos",
-      "v": "4+"
+      "v": "5+"
     },
     {
       "k": "anos cód.",
@@ -151,27 +151,153 @@
     },
     {
       "k": "stack",
-      "v": "19"
+      "v": "24"
     }
   ],
   "projects": [
     {
-      "id": "movemaster",
+      "id": "office-showdown",
       "n": "01",
+      "title": "Office Showdown",
+      "subtitle": "Torneios + game show para eventos de escritório — em tempo real",
+      "tagline": "Competitividade saudável entre colegas, no projetor da sala.",
+      "year": "2026",
+      "role": "Design + Engenharia",
+      "timeline": "em desenvolvimento",
+      "stack": [
+        "Nuxt 4",
+        "Vue 3",
+        "TypeScript",
+        "Supabase",
+        "Vuetify 4"
+      ],
+      "tag": "hobby",
+      "img": "/assets/logo-office-showdown.png",
+      "desc": "Plataforma híbrida de torneios e game show para eventos de escritório. Um ecrã central mostra a árvore do torneio e os jogos ao vivo. Os colegas entram pelo telemóvel via QR code — como jogadores, plateia ou admins.",
+      "links": {
+        "github": "github.com/Dani12600000/office-showdown",
+        "live": "https://office-showdown-drab.vercel.app/"
+      },
+      "caseStudy": {
+        "sections": [
+          {
+            "num": "01",
+            "title": "Problema",
+            "body": "Os eventos de equipa costumam ser passivos — alguém faz uma apresentação, toda a gente assiste. Queria criar algo que pusesse os colegas genuinamente a competir entre si, com tensão, audiência e espetáculo — sem precisar de instalar nada."
+          },
+          {
+            "num": "02",
+            "title": "Solução",
+            "body": "Uma plataforma onde um projetor/TV mostra o torneio ao vivo e cada colega usa o telemóvel como comando, entrando por QR code. O admin controla o espetáculo — sorteio de elenco, apresentação de partidas, avanço de rondas. A lógica crítica corre em funções Postgres no servidor para evitar batota e race conditions.",
+            "code": {
+              "lang": "ts",
+              "filename": "usePartida.ts",
+              "tokens": [
+                {
+                  "t": "// resolução atómica no servidor",
+                  "c": "comment"
+                },
+                {
+                  "t": "\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "const",
+                  "c": "keyword"
+                },
+                {
+                  "t": " { data } = await ",
+                  "c": "plain"
+                },
+                {
+                  "t": "supabase",
+                  "c": "fn"
+                },
+                {
+                  "t": "\n  .rpc(",
+                  "c": "plain"
+                },
+                {
+                  "t": "'jogar_ppt'",
+                  "c": "plain"
+                },
+                {
+                  "t": ", {\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "    partida_id",
+                  "c": "arg"
+                },
+                {
+                  "t": ": partidaId,\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "    jogador_id",
+                  "c": "arg"
+                },
+                {
+                  "t": ": perfil.id,\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "    escolha",
+                  "c": "arg"
+                },
+                {
+                  "t": ": ",
+                  "c": "plain"
+                },
+                {
+                  "t": "jogada",
+                  "c": "plain"
+                },
+                {
+                  "t": "\n  });",
+                  "c": "plain"
+                }
+              ]
+            }
+          },
+          {
+            "num": "03",
+            "title": "Funcionalidades",
+            "bullets": [
+              "Autenticação por username/password com perfis e avatares (Supabase Storage).",
+              "Lobby com casting, bots, preferências (Jogar/Plateia) e sorteio automático.",
+              "Motor de torneio completo: árvore automática, revelação de confrontos, avanço de rondas, campeão.",
+              "Pedra-Papel-Tesoura à melhor de 3 com revelação sincronizada de 5s entre todos os ecrãs.",
+              "Ecrã Projetor fullscreen com QR de entrada, bracket ao vivo e confetti para o campeão.",
+              "Realtime em tudo via Supabase — zero polling, eventos em tempo real."
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Estado atual",
+            "body": "Em desenvolvimento ativo. O motor de torneio e o PPT estão completos. No roadmap: Jogo do Galo, Quatro em Linha, Batalha Naval, e sistema de apostas com moedas para a plateia."
+          }
+        ]
+      }
+    },
+    {
+      "id": "movemaster",
+      "n": "02",
       "title": "Movemaster",
-      "subtitle": "Assistente de xadrez — overlay de sugestão de jogadas",
-      "tagline": "Análise de xadrez em tempo real, no próprio tabuleiro.",
+      "subtitle": "Assistente de xadrez — app desktop com análise de jogadas",
+      "tagline": "Análise de xadrez em tempo real, no próprio ecrã.",
       "year": "2024",
       "role": "Design + Engenharia",
       "timeline": "3 meses",
       "stack": [
         "TypeScript",
-        "Stockfish.js",
-        "Extensão Chrome"
+        "React",
+        "Tauri",
+        "Stockfish/UCI"
       ],
       "tag": "hobby",
       "img": "/assets/movemaster-logo.png",
-      "desc": "Uma extensão de browser que analisa posições de xadrez em direto e sobrepõe as jogadas sugeridas diretamente no chess.com.",
+      "desc": "Uma app desktop (Tauri + React) que analisa posições de xadrez em direto via motor UCI/Stockfish e sobrepõe as jogadas sugeridas no ecrã.",
       "links": {
         "github": "github.com/Dani12600000/movemaster",
         "live": null
@@ -181,18 +307,18 @@
           {
             "num": "01",
             "title": "Problema",
-            "body": "Aprender aberturas de xadrez obriga a consultar constantemente um motor de análise. Mudar de separador quebra o foco. Queria que a sugestão do motor aparecesse no próprio tabuleiro, sem interferir com o jogo."
+            "body": "Aprender aberturas de xadrez obriga a consultar constantemente um motor de análise. Mudar de janela quebra o foco. Queria que a sugestão do motor aparecesse no próprio ecrã, sem interferir com o jogo."
           },
           {
             "num": "02",
             "title": "Abordagem",
-            "body": "Uma extensão de Chrome liga-se ao DOM do tabuleiro, transforma a posição em FEN e envia-a para um worker Stockfish local. A jogada sugerida é desenhada como uma seta translúcida — sempre presente, sem bloquear o input.",
+            "body": "Uma app Tauri corre o motor Stockfish localmente via protocolo UCI. A interface React recebe o melhor lance e desenha-o como sobreposição — sempre presente, sem bloquear o input.",
             "code": {
               "lang": "ts",
-              "filename": "content-script.ts",
+              "filename": "engine.ts",
               "tokens": [
                 {
-                  "t": "// content-script.ts",
+                  "t": "// engine.ts",
                   "c": "comment"
                 },
                 {
@@ -278,22 +404,22 @@
             "num": "03",
             "title": "Desenvolvimento",
             "bullets": [
-              "Stockfish compilado para WASM — entra no bundle da extensão.",
-              "MutationObserver segue o estado do tabuleiro sem polling.",
-              "Seta SVG alinhada com o tamanho dos quadrados do chess.com."
+              "Motor Stockfish a correr nativamente via Tauri + Rust shell.",
+              "Interface React com overlay SVG sincronizado com a posição.",
+              "Comunicação UCI assíncrona com latência < 200ms."
             ]
           },
           {
             "num": "04",
             "title": "Resultado",
-            "body": "Funciona de ponta a ponta. Latência inferior a 200ms para análise de profundidade 18 num portátil modesto. Foi um exercício de aprendizagem — como é óbvio, não o uso em jogos ranqueados."
+            "body": "Funciona de ponta a ponta num portátil modesto. Foi um exercício de aprendizagem — obviamente, não o uso em jogos ranqueados."
           }
         ]
       }
     },
     {
       "id": "terminator",
-      "n": "02",
+      "n": "03",
       "title": "Terminator",
       "subtitle": "Solver do Termo (Wordle português)",
       "tagline": "Resolvedor de palavras em PT baseado em entropia.",
@@ -301,43 +427,274 @@
       "role": "Full stack",
       "timeline": "1 mês",
       "stack": [
-        "JavaScript",
-        "Pesquisa em dicionário",
-        "DOM"
+        "Vue 3",
+        "TypeScript",
+        "Entropia"
       ],
       "tag": "ferramenta",
       "img": "/assets/logo.png",
-      "desc": "Um solver de wordle afinado ao corpus da língua portuguesa, com pontuação de tentativas baseada em entropia.",
+      "desc": "Um solver de wordle afinado ao corpus da língua portuguesa, com pontuação de tentativas baseada em entropia. Disponível em GitHub Pages.",
       "links": {
         "github": "github.com/Dani12600000/terminator",
         "live": null
+      },
+      "caseStudy": {
+        "sections": [
+          {
+            "num": "01",
+            "title": "Problema",
+            "body": "O Termo (versão portuguesa do Wordle) tornou-se viral em 2023. Queria perceber matematicamente qual é a melhor primeira palavra — e construir uma ferramenta que jogasse de forma ótima com base em teoria da informação."
+          },
+          {
+            "num": "02",
+            "title": "Abordagem",
+            "body": "Cada tentativa é avaliada pela quantidade de entropia que remove do espaço de palavras possíveis. A palavra com maior ganho de informação esperado é sempre sugerida — independentemente de parecer intuitiva ou não.",
+            "code": {
+              "lang": "ts",
+              "filename": "entropy.ts",
+              "tokens": [
+                {
+                  "t": "// entropy.ts",
+                  "c": "comment"
+                },
+                {
+                  "t": "\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "function",
+                  "c": "keyword"
+                },
+                {
+                  "t": " ",
+                  "c": "plain"
+                },
+                {
+                  "t": "score",
+                  "c": "fn"
+                },
+                {
+                  "t": "(word: ",
+                  "c": "plain"
+                },
+                {
+                  "t": "string",
+                  "c": "keyword"
+                },
+                {
+                  "t": ", remaining: ",
+                  "c": "plain"
+                },
+                {
+                  "t": "string",
+                  "c": "keyword"
+                },
+                {
+                  "t": "[]) {\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "  const",
+                  "c": "keyword"
+                },
+                {
+                  "t": " patterns = ",
+                  "c": "plain"
+                },
+                {
+                  "t": "groupByPattern",
+                  "c": "fn"
+                },
+                {
+                  "t": "(word, remaining);\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "  return",
+                  "c": "keyword"
+                },
+                {
+                  "t": " ",
+                  "c": "plain"
+                },
+                {
+                  "t": "entropy",
+                  "c": "fn"
+                },
+                {
+                  "t": "(patterns);\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "}",
+                  "c": "plain"
+                }
+              ]
+            }
+          },
+          {
+            "num": "03",
+            "title": "Desenvolvimento",
+            "bullets": [
+              "Dicionário PT filtrado e normalizado com remoção de acentos opcionais.",
+              "Algoritmo de entropia pura — sem heurísticas manuais ou listas curadas.",
+              "Interface Vue 3 + TypeScript com feedback visual de padrão por letra.",
+              "Deploy estático em GitHub Pages sem backend."
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Resultado",
+            "body": "O solver resolve o Termo em 3–4 tentativas de forma consistente. Mais do que uma ferramenta, foi um exercício de aplicar teoria da informação a um problema concreto e divertido."
+          }
+        ]
       }
     },
     {
       "id": "pap",
-      "n": "03",
+      "n": "04",
       "title": "Industries Manager",
-      "subtitle": "PAP — projeto final de curso, full stack",
-      "tagline": "Plataforma CRUD para registos industriais.",
+      "subtitle": "PAP — aplicação desktop de gestão empresarial",
+      "tagline": "Gestão de indústrias, clientes e pessoal numa app Windows.",
       "year": "2023",
       "role": "Desenvolvedor único",
       "timeline": "6 meses",
       "stack": [
-        "PHP",
-        "PostgreSQL",
-        "Bootstrap"
+        "Visual Basic .NET",
+        "Access Database",
+        "Visual Studio 2022"
       ],
       "tag": "académico",
       "img": "/assets/LogoIndustries-Manager.png",
-      "desc": "Uma plataforma CRUD para gerir registos de indústrias, instalações e trabalhadores — submetida como PAP.",
+      "desc": "Aplicação desktop Windows para gestão empresarial — pessoal, clientes, comercial e financeiro. Base de dados Microsoft Access, interface WinForms, com sistema de login com registo de atividade.",
       "links": {
-        "github": null,
+        "github": "github.com/Dani12600000/Industries-Manager",
         "live": null
+      },
+      "caseStudy": {
+        "sections": [
+          {
+            "num": "01",
+            "title": "Contexto",
+            "body": "PAP do curso técnico de informática — um sistema de gestão empresarial completo, construído sozinho em 6 meses, em Visual Basic .NET com base de dados Microsoft Access."
+          },
+          {
+            "num": "02",
+            "title": "O que faz",
+            "body": "A aplicação cobre gestão de pessoal, clientes, comercial e financeiro. O login regista toda a atividade (entradas e saídas) na tabela Login_Funcionario. O menu principal adapta a saudação à hora do dia — Bom dia, Boa tarde, Boa noite — e gere logout automático ao fechar.",
+            "code": {
+              "lang": "vb",
+              "filename": "PMenu.vb",
+              "tokens": [
+                {
+                  "t": "' PMenu.vb",
+                  "c": "comment"
+                },
+                {
+                  "t": "\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "If",
+                  "c": "keyword"
+                },
+                {
+                  "t": " Now.Hour < ",
+                  "c": "plain"
+                },
+                {
+                  "t": "12",
+                  "c": "num"
+                },
+                {
+                  "t": " Then\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "  lblGreeting.Text",
+                  "c": "plain"
+                },
+                {
+                  "t": " = ",
+                  "c": "plain"
+                },
+                {
+                  "t": "\"Bom dia, \"",
+                  "c": "plain"
+                },
+                {
+                  "t": " & ",
+                  "c": "plain"
+                },
+                {
+                  "t": "userName\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "ElseIf",
+                  "c": "keyword"
+                },
+                {
+                  "t": " Now.Hour < ",
+                  "c": "plain"
+                },
+                {
+                  "t": "21",
+                  "c": "num"
+                },
+                {
+                  "t": " Then\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "  lblGreeting.Text",
+                  "c": "plain"
+                },
+                {
+                  "t": " = ",
+                  "c": "plain"
+                },
+                {
+                  "t": "\"Boa tarde, \"",
+                  "c": "plain"
+                },
+                {
+                  "t": " & ",
+                  "c": "plain"
+                },
+                {
+                  "t": "userName\n",
+                  "c": "plain"
+                },
+                {
+                  "t": "End If",
+                  "c": "keyword"
+                }
+              ]
+            }
+          },
+          {
+            "num": "03",
+            "title": "Desenvolvimento",
+            "bullets": [
+              "WinForms em Visual Basic .NET com Visual Studio 2022.",
+              "Base de dados Microsoft Access (.mdb) em C:\\Industries Dan_PAP\\.",
+              "Módulo de clientes com histórico de compras e produtos por compra.",
+              "Registo de login/logout de todos os utilizadores na base de dados.",
+              "Saudação dinâmica por hora do dia no menu principal."
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Resultado",
+            "body": "Projeto aprovado e publicado com release no GitHub. Foi o primeiro sistema completo que construí — autenticação, base de dados, módulos de gestão, instalador. A fundação de tudo o que veio a seguir."
+          }
+        ]
       }
     },
     {
       "id": "weebly",
-      "n": "04",
+      "n": "05",
       "title": "Primeiro Site",
       "subtitle": "5.º ano — ainda online",
       "tagline": "O que começou tudo.",
@@ -354,6 +711,34 @@
       "links": {
         "github": null,
         "live": null
+      },
+      "caseStudy": {
+        "sections": [
+          {
+            "num": "01",
+            "title": "Contexto",
+            "body": "Em 2015, com 10 anos e no 5.º ano, descobri que era possível publicar um site na internet sem saber programar. Não precisei de mais motivação do que isso."
+          },
+          {
+            "num": "02",
+            "title": "O que foi",
+            "body": "Um site feito com Weebly — drag-and-drop, sem uma linha de código. Está online até hoje, e há outros projetos dessa época guardados lá."
+          },
+          {
+            "num": "03",
+            "title": "Porquê está aqui",
+            "bullets": [
+              "Porque foi o primeiro artefacto digital que criei e publiquei.",
+              "Porque ainda está online — 11 anos depois.",
+              "Porque toda a gente começa algures, e este foi o meu início."
+            ]
+          },
+          {
+            "num": "04",
+            "title": "Reflexão",
+            "body": "A curiosidade que me fez publicar esse site em 2015 é a mesma que me faz construir hoje. O stack mudou. A motivação não."
+          }
+        ]
       }
     }
   ],
@@ -400,9 +785,21 @@
             "core": true
           },
           {
+            "n": "React",
+            "yrs": 1,
+            "last": "este ano",
+            "core": false
+          },
+          {
             "n": "Vuetify",
             "yrs": 2,
             "last": "esta semana",
+            "core": false
+          },
+          {
+            "n": "Tauri",
+            "yrs": 1,
+            "last": "este ano",
             "core": false
           },
           {
@@ -417,27 +814,27 @@
         "group": "backend",
         "items": [
           {
-            "n": "PHP",
-            "yrs": 4,
-            "last": "este mês",
-            "core": true
-          },
-          {
             "n": "Node.js",
             "yrs": 2,
             "last": "esta semana",
-            "core": false
+            "core": true
           },
           {
             "n": "Python",
             "yrs": 3,
             "last": "este mês",
+            "core": true
+          },
+          {
+            "n": "Java EE",
+            "yrs": 3,
+            "last": "2025",
             "core": false
           },
           {
-            "n": "Java",
-            "yrs": 2,
-            "last": "2024",
+            "n": "PHP",
+            "yrs": 4,
+            "last": "este mês",
             "core": false
           },
           {
@@ -470,15 +867,21 @@
             "core": true
           },
           {
+            "n": "MongoDB",
+            "yrs": 2,
+            "last": "hoje",
+            "core": true
+          },
+          {
             "n": "SQL",
             "yrs": 4,
             "last": "hoje",
             "core": true
           },
           {
-            "n": "MongoDB",
-            "yrs": 1,
-            "last": "este ano",
+            "n": "SQL Server",
+            "yrs": 2,
+            "last": "2025",
             "core": false
           }
         ]
@@ -487,10 +890,40 @@
         "group": "ferramentas",
         "items": [
           {
-            "n": "Git",
+            "n": "Git / GitLab",
             "yrs": 5,
             "last": "hoje",
             "core": true
+          },
+          {
+            "n": "Keycloak",
+            "yrs": 1,
+            "last": "hoje",
+            "core": true
+          },
+          {
+            "n": "PM2",
+            "yrs": 2,
+            "last": "este mês",
+            "core": false
+          },
+          {
+            "n": "Docker",
+            "yrs": 1,
+            "last": "este ano",
+            "core": false
+          },
+          {
+            "n": "Linux / SSH",
+            "yrs": 3,
+            "last": "esta semana",
+            "core": false
+          },
+          {
+            "n": "Payara",
+            "yrs": 2,
+            "last": "2025",
+            "core": false
           }
         ]
       }
@@ -554,15 +987,15 @@
       {
         "year": "2023 – 2025",
         "title": "ESTA — CTeSP",
-        "desc": "Ensino superior. Estágio na Alemanha foi planeado, acabei por voltar à CM Abrantes para uma 3.ª passagem.",
+        "desc": "Ensino superior em Programação de Computadores. Estágio na Alemanha foi planeado, acabei por voltar à CM Abrantes para uma 3.ª passagem.",
         "loc": "Abrantes",
         "tag": "superior",
         "img": "/assets/ESTA_Abrantes.jpg"
       },
       {
         "year": "2025 — agora",
-        "title": "SkillTech",
-        "desc": "Full Stack Developer. Serviços para a Câmara Municipal de Abrantes.",
+        "title": "SkillTech - DSI · Câmara Municipal de Abrantes",
+        "desc": "Full Stack Developer  na SkillTech providenciando serviços para a Divisão de Sistemas de Informação. Projetos: Abrantes360, Gestão de Entidades, turismo, ETL, Keycloak, e muito mais.",
         "loc": "Abrantes",
         "tag": "trabalho",
         "img": null
@@ -617,7 +1050,8 @@
       "selectedWork": "Trabalho Selecionado",
       "stackToolbox": "Stack / Ferramentas",
       "aboutJourney": "Sobre / Percurso",
-      "contactSayHi": "Contacto / diga olá"
+      "contactSayHi": "Contacto / diga olá",
+      "chronos": "Cronologia"
     },
     "statusLabels": {
       "available": "Disponível",

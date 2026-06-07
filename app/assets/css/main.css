@@ -45,6 +45,9 @@
 
 * { box-sizing: border-box; }
 
+html {
+  scroll-behavior: smooth;
+}
 html, body {
   margin: 0;
   padding: 0;
@@ -946,7 +949,7 @@ img { max-width: 100%; display: block; }
 }
 
 .case-content {
-  padding: 0 var(--page-x) 80px;
+  padding: 48px var(--page-x) 80px;
   max-width: var(--container-max);
   margin: 0 auto;
   display: grid;
@@ -954,7 +957,8 @@ img { max-width: 100%; display: block; }
   gap: 48px;
 }
 .case-content > * { min-width: 0; }
-.case-toc { font-family: var(--mono); font-size: 12px; position: sticky; top: 120px; align-self: flex-start; }
+.case-toc { font-family: var(--mono); font-size: 12px; position: sticky; top: 140px; align-self: start; }
+.case-article > div { scroll-margin-top: 140px; }
 .case-toc a {
   display: block; padding: 6px 0;
   color: var(--paper-1);
@@ -1129,7 +1133,7 @@ img { max-width: 100%; display: block; }
   position: relative;
 }
 .timeline-years .stick {
-  position: sticky; top: 120px;
+  position: sticky; top: 140px;
   font-family: var(--mono); font-size: 11px; color: var(--paper-2);
 }
 .timeline-years .yr {
