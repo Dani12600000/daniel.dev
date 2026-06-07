@@ -35,9 +35,7 @@ export default defineNuxtConfig({
     preset: 'github-pages',
     prerender: {
       routes: [
-        '/api/github-stats',
-        '/api/site-content?locale=en',
-        '/api/site-content?locale=pt'
+        '/api/github-stats'
       ]
     }
   },

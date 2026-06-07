@@ -20,8 +20,10 @@ export const useSiteContent = () => {
 }
 
 const fetchFor = async (locale: string): Promise<SiteContent> => {
+  // Static JSON files per locale — required for GitHub Pages (static hosting cannot
+  // route by query param; /api/site-content?locale=pt would resolve the same file as EN).
   const baseURL = useRuntimeConfig().app.baseURL || '/'
-  return await $fetch<SiteContent>(`${baseURL}api/site-content`, { query: { locale } })
+  return await $fetch<SiteContent>(`${baseURL}content/site.${locale}.json`)
 }
 
 export const useLoadSiteContent = async () => {
