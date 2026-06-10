@@ -2,7 +2,7 @@
   "site": {
     "name": "daniel.dev",
     "brand": "D",
-    "title": "Daniel Pereira — Full-Stack Developer",
+    "title": "Daniel Pereira — Programador Full-Stack",
     "description": "Construo experiências web rápidas e fluidas com Vue, Nuxt e Node. Portfólio inspirado no terminal.",
     "tagline": "Portefólio 2026",
     "lastUpdated": "2026-06-07",
@@ -18,7 +18,8 @@
     },
     "cv": {
       "label": "CV.pdf",
-      "href": "/cv.pdf"
+      "href": "/cv.pt.pdf",
+      "filename": "Daniel-Pereira-CV-PT.pdf"
     }
   },
   "navigation": [
@@ -1046,6 +1047,13 @@
     "colophon": "© 2026 — feito com cuidado em Abrantes, PT"
   },
   "ui": {
+    "titles": {
+      "home": "Daniel Pereira — Programador Full-Stack",
+      "work": "Trabalho",
+      "skills": "Stack",
+      "about": "Sobre",
+      "contact": "Contacto"
+    },
     "labels": {
       "selectedWork": "Trabalho Selecionado",
       "stackToolbox": "Stack / Ferramentas",

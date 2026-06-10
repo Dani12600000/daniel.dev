@@ -3,7 +3,7 @@ const content = useSiteContent()
 const contact = computed(() => content.value?.contact ?? ({} as any))
 const cv = computed(() => content.value?.site?.cv)
 
-useHead({ title: 'Contact — Daniel Pereira' })
+useHead({ title: () => `${content.value?.ui?.titles?.contact ?? 'Contact'} — Daniel Pereira` })
 useReveal()
 
 const copied = ref<string | null>(null)
@@ -89,7 +89,7 @@ const openCalendly = () => $openCalendly()
           <button class="btn primary" data-cursor-hover @click="openCalendly">
             {{ content?.ui?.contact?.bookCall ?? 'book a call' }} <span>→</span>
           </button>
-          <a v-if="cv" :href="$url(cv.href)" download class="btn" data-cursor-hover>
+          <a v-if="cv" :href="$url(cv.href)" :download="cv.filename ?? ''" class="btn" data-cursor-hover>
             {{ cv.label }} ↓
           </a>
         </div>

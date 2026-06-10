@@ -4,7 +4,7 @@ const projects = computed(() => content.value?.projects ?? [])
 const uiWork = computed(() => content.value?.ui?.work ?? ({} as any))
 
 const { $url } = useNuxtApp()
-useHead({ title: `${uiWork.value.label ?? 'Work'} — Daniel Pereira` })
+useHead({ title: () => `${content.value?.ui?.titles?.work ?? 'Work'} — Daniel Pereira` })
 
 const hoverIndex = ref<number | null>(null)
 const previewStyle = computed(() => {

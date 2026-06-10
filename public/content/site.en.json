@@ -18,7 +18,8 @@
     },
     "cv": {
       "label": "CV.pdf",
-      "href": "/cv.pdf"
+      "href": "/cv.en.pdf",
+      "filename": "Daniel-Pereira-CV-EN.pdf"
     }
   },
   "navigation": [
@@ -1046,6 +1047,13 @@
     "colophon": "© 2026 — built with care in Abrantes, PT"
   },
   "ui": {
+    "titles": {
+      "home": "Daniel Pereira — Full-Stack Developer",
+      "work": "Work",
+      "skills": "Stack",
+      "about": "About",
+      "contact": "Contact"
+    },
     "labels": {
       "selectedWork": "Selected Work",
       "stackToolbox": "Stack / Toolbox",

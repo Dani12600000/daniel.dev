@@ -5,7 +5,7 @@ const totalItems = computed(() =>
   skills.value.groups.reduce((a, g) => a + g.items.length, 0)
 )
 
-useHead({ title: 'Stack — Daniel Pereira' })
+useHead({ title: () => `${content.value?.ui?.titles?.skills ?? 'Stack'} — Daniel Pereira` })
 useReveal()
 
 const lastUpdated = computed(() => content.value?.site?.lastUpdated ?? '—')

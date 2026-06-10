@@ -13,7 +13,7 @@ if (!project.value) {
 const uiWork = computed(() => content.value?.ui?.work ?? ({} as any))
 
 useHead({
-  title: () => `Work — Daniel Pereira — ${project.value?.title}`,
+  title: () => `${project.value?.title ?? content.value?.ui?.titles?.work ?? 'Work'} — Daniel Pereira`,
 })
 
 const activeSection = ref(0)

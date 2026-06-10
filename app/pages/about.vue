@@ -3,7 +3,7 @@ const content = useSiteContent()
 const about = computed(() => content.value?.about ?? ({} as any))
 const timeline = computed(() => about.value?.timeline ?? [])
 
-useHead({ title: 'About — Daniel Pereira' })
+useHead({ title: () => `${content.value?.ui?.titles?.about ?? 'About'} — Daniel Pereira` })
 
 const activeIdx = ref(timeline.value.length - 1)
 let observer: IntersectionObserver | null = null
