@@ -994,11 +994,19 @@
         "img": "/assets/ESTA_Abrantes.jpg"
       },
       {
-        "year": "2025 — now",
+        "year": "2025 – 2026",
         "title": "SkillTech - DSI · Câmara Municipal de Abrantes",
         "desc": "Full Stack Developer at SkillTech providing services to the IT Division of Abrantes. Projects: Abrantes360, Entity Management, tourism platform, ETL pipelines, Keycloak, and more.",
         "loc": "Abrantes",
         "tag": "work",
+        "img": null
+      },
+      {
+        "year": "2026 — now",
+        "title": "Waiting on IPT",
+        "desc": "Left SkillTech and now preparing my application to Instituto Politécnico de Tomar for the Computer Engineering degree.",
+        "loc": "Abrantes",
+        "tag": "application",
         "img": null
       }
     ]

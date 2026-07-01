@@ -994,11 +994,19 @@
         "img": "/assets/ESTA_Abrantes.jpg"
       },
       {
-        "year": "2025 — agora",
+        "year": "2025 – 2026",
         "title": "SkillTech - DSI · Câmara Municipal de Abrantes",
         "desc": "Full Stack Developer  na SkillTech providenciando serviços para a Divisão de Sistemas de Informação. Projetos: Abrantes360, Gestão de Entidades, turismo, ETL, Keycloak, e muito mais.",
         "loc": "Abrantes",
         "tag": "trabalho",
+        "img": null
+      },
+      {
+        "year": "2026 — agora",
+        "title": "À espera do IPT",
+        "desc": "Saí da SkillTech e estou agora a preparar a candidatura ao Instituto Politécnico de Tomar, para o curso de Engenharia Informática.",
+        "loc": "Abrantes",
+        "tag": "candidatura",
         "img": null
       }
     ]
