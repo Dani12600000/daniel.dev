@@ -45,8 +45,8 @@ const onKeydown = (e: KeyboardEvent) => {
   if (e.key === 'Escape') clearForm()
 }
 
-const { $openCalendly } = useNuxtApp()
-const openCalendly = () => $openCalendly()
+const { $openCal } = useNuxtApp()
+const openCal = () => $openCal()
 </script>
 
 <template>
@@ -86,7 +86,7 @@ const openCalendly = () => $openCalendly()
         </div>
 
         <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap">
-          <button class="btn primary" data-cursor-hover @click="openCalendly">
+          <button class="btn primary" data-cursor-hover @click="openCal">
             {{ content?.ui?.contact?.bookCall ?? 'book a call' }} <span>→</span>
           </button>
           <a v-if="cv" :href="$url(cv.href)" :download="cv.filename ?? ''" class="btn" data-cursor-hover>

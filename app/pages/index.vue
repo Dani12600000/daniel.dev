@@ -192,7 +192,7 @@ onBeforeUnmount(() => {
 })
 
 useReveal()
-const { $openCalendly } = useNuxtApp()
+const { $openCal } = useNuxtApp()
 </script>
 
 <template>
@@ -222,7 +222,7 @@ const { $openCalendly } = useNuxtApp()
               v-if="hero.secondaryCta"
               class="btn"
               data-cursor-hover
-              @click="hero.secondaryCta.label.includes('call') || hero.secondaryCta.label.includes('conversa') ? $openCalendly() : $router.push(hero.secondaryCta.href)"
+              @click="hero.secondaryCta.label.includes('call') || hero.secondaryCta.label.includes('conversa') ? $openCal() : $router.push(hero.secondaryCta.href)"
             >
               {{ hero.secondaryCta.label }}
               <span v-if="hero.secondaryCta.kbd" class="kbd">{{ hero.secondaryCta.kbd }}</span>
